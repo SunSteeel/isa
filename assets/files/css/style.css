@@ -1,0 +1,736 @@
+
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+
+  font-family:'Patrick Hand', cursive;
+
+  background:#ffeaf3;
+
+  overflow:hidden;
+
+  color:#8c5f77;
+}
+
+
+
+
+
+.background-blur{
+
+  position:fixed;
+  inset:0;
+
+  background:
+  linear-gradient(
+    rgba(255,220,235,.35),
+    rgba(255,235,245,.45)
+  ),
+  url("../../images/minions.png");
+
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+
+  z-index:-1;
+
+  filter:blur(4px);
+  transform:scale(1.05);
+}
+
+.paper-card{
+
+  transition:
+  opacity .9s ease,
+  transform .9s ease;
+
+}
+
+.loader-container{
+
+  width:100%;
+  height:100vh;
+
+  display:flex;
+
+  justify-content:center;
+  align-items:center;
+
+  padding:20px;
+}
+
+
+
+.paper-card{
+
+  width:700px;
+  max-width:100%;
+
+  background:
+  rgba(255,245,250,0.72);
+
+  backdrop-filter:blur(12px);
+
+  border-radius:35px;
+
+  padding:60px;
+
+  text-align:center;
+
+  box-shadow:
+  0 15px 40px rgba(255,180,210,.20);
+
+  transform:rotate(-1deg);
+
+  position:relative;
+
+  animation:
+  floating 6s ease-in-out infinite;
+}
+
+
+
+.small-text{
+
+  color:#c98cab;
+
+  letter-spacing:3px;
+
+  font-size:1rem;
+}
+
+
+
+.paper-card h1{
+
+  font-size:5rem;
+
+  color:#b06d8e;
+
+  margin-top:10px;
+
+  font-family:'Caveat', cursive;
+}
+
+
+
+.description{
+
+  margin-top:10px;
+  font-size:1.3rem;
+}
+
+
+
+#countdown{
+
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+
+  margin-top:40px;
+}
+
+
+
+.time-box{
+
+  width:120px;
+  height:120px;
+
+  background:
+  rgba(255,248,251,.78);
+
+  border-radius:25px;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+
+  box-shadow:
+  0 8px 22px rgba(255,190,215,.18);
+
+  transition:
+  transform 0.35s ease,
+  box-shadow 0.35s ease;
+}
+
+
+
+.time-box:hover{
+
+  transform:
+  translateY(-6px)
+  scale(1.03);
+
+  box-shadow:
+  0 15px 35px rgba(255,180,210,.28);
+}
+
+
+
+.time-box span{
+
+  font-size:2.8rem;
+
+  color:#c26b92;
+
+  font-weight:bold;
+
+  text-shadow:
+  0 2px 10px rgba(255,180,210,.25);
+}
+
+
+
+.time-box small{
+
+  color:#c78ca7;
+
+  font-size:1rem;
+
+  margin-top:5px;
+}
+
+
+
+.progress-bar{
+
+  width:100%;
+  height:14px;
+
+  background:#ffd8e6;
+
+  border-radius:20px;
+
+  overflow:hidden;
+
+  margin-top:45px;
+}
+
+
+
+.bottom-text{
+
+  margin-top:30px;
+
+  color:#bf8fa8;
+
+  font-size:1rem;
+}
+
+
+
+main{
+  opacity:0;
+  transition:2s ease;
+}
+
+.site-visible main{
+  opacity:1;
+}
+
+
+
+#enterButton{
+
+  margin-top:30px;
+
+  border:none;
+
+  background:#f6a9c9;
+
+  color:white;
+
+  padding:14px 28px;
+
+  border-radius:20px;
+
+  font-size:1rem;
+
+  cursor:not-allowed;
+
+  transition:0.4s ease;
+
+  font-family:'Patrick Hand', cursive;
+
+  letter-spacing:1px;
+
+  box-shadow:
+  0 10px 25px rgba(255,170,205,.30);
+}
+
+
+
+#enterButton.active{
+
+  background:#ec8db5;
+
+  cursor:pointer;
+
+  transform:scale(1.02);
+}
+
+
+
+#enterButton.active:hover{
+
+  transform:
+  translateY(-2px)
+  scale(1.06);
+
+  box-shadow:
+  0 15px 35px rgba(255,165,200,.38);
+}
+
+
+
+.paper-card::before{
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  border-radius:35px;
+
+  background:
+  repeating-linear-gradient(
+    0deg,
+    rgba(255,255,255,.08),
+    rgba(255,255,255,.08) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+
+  pointer-events:none;
+
+  opacity:.45;
+}
+
+
+
+.paper-card::after{
+
+  content:"";
+
+  position:absolute;
+
+  width:320px;
+  height:320px;
+
+  background:#ffc9de;
+
+  border-radius:50%;
+
+  filter:blur(90px);
+
+  opacity:.35;
+
+  top:-100px;
+  left:-80px;
+
+  z-index:-1;
+
+  animation:
+  glowMove 8s ease-in-out infinite alternate;
+}
+
+
+
+.hero{
+
+  width:100%;
+  min-height:100vh;
+
+  display:flex;
+
+  justify-content:center;
+  align-items:center;
+
+  padding:40px;
+}
+
+
+
+.hero-card{
+
+  width:750px;
+  max-width:100%;
+
+  background:
+  rgba(255,245,250,.72);
+
+  backdrop-filter:blur(12px);
+
+  border-radius:40px;
+
+  padding:70px;
+
+  text-align:center;
+
+  box-shadow:
+  0 15px 50px rgba(255,180,210,.22);
+
+  position:relative;
+
+  animation:
+  floating 7s ease-in-out infinite;
+}
+
+
+
+.mini{
+
+  color:#c78ca7;
+
+  letter-spacing:3px;
+
+  text-transform:uppercase;
+
+  font-size:.9rem;
+}
+
+
+
+.hero-card h1{
+
+  font-family:'Caveat', cursive;
+
+  font-size:5rem;
+
+  margin-top:15px;
+
+  color:#b06d8e;
+}
+
+
+
+.hero-card p{
+
+  margin-top:15px;
+
+  font-size:1.4rem;
+
+  color:#96697f;
+}
+
+
+
+.pages{
+
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+
+  margin-top:40px;
+}
+
+
+
+.page-btn{
+
+  text-decoration:none;
+
+  color:white;
+
+  background:#f4a7c8;
+
+  padding:16px 28px;
+
+  border-radius:22px;
+
+  font-size:1.1rem;
+
+  transition:
+  transform .35s ease,
+  box-shadow .35s ease,
+  background .35s ease;
+
+  box-shadow:
+  0 10px 25px rgba(255,170,205,.25);
+}
+
+
+
+.page-btn:hover{
+
+  background:#ec8db5;
+
+  transform:
+  translateY(-4px)
+  scale(1.04);
+
+  box-shadow:
+  0 18px 40px rgba(255,165,200,.35);
+}
+
+
+
+
+
+@keyframes floating{
+
+  0%{
+    transform:
+    translateY(0px)
+    rotate(-1deg);
+  }
+
+  50%{
+    transform:
+    translateY(-8px)
+    rotate(-1deg);
+  }
+
+  100%{
+    transform:
+    translateY(0px)
+    rotate(-1deg);
+  }
+}
+
+
+
+@keyframes glowMove{
+
+  0%{
+    transform:
+    translateX(0px)
+    translateY(0px);
+  }
+
+  100%{
+    transform:
+    translateX(60px)
+    translateY(40px);
+  }
+}
+
+
+
+
+
+@media(max-width:768px){
+
+  body{
+    overflow-x:hidden;
+    overflow-y:auto;
+  }
+
+
+
+.background-blur{
+
+  background:
+  linear-gradient(
+    rgba(255,220,235,.35),
+    rgba(255,235,245,.45)
+  ),
+  url("../../images/minions-celular.png");
+
+  background-position:center center;
+  background-size:cover;
+  background-repeat:no-repeat;
+
+  filter:blur(3px);
+  transform:scale(1.03);
+
+  position:fixed;
+  inset:0;
+  z-index:-1;
+}
+
+
+
+  .loader-container{
+    padding:18px;
+    min-height:100svh;
+    height:auto;
+  }
+
+  .paper-card{
+
+    width:100%;
+    max-width:420px;
+
+    padding:28px 22px;
+
+    border-radius:28px;
+
+    transform:none;
+    animation:none;
+  }
+
+  .paper-card::after{
+
+    width:180px;
+    height:180px;
+
+    top:-50px;
+    left:-40px;
+
+    filter:blur(60px);
+  }
+
+  .small-text{
+    font-size:.82rem;
+    letter-spacing:2px;
+  }
+
+  .paper-card h1{
+    font-size:3.1rem;
+    line-height:.95;
+    margin-top:8px;
+  }
+
+  .description{
+    font-size:1rem;
+    line-height:1.5;
+    margin-top:10px;
+  }
+
+
+
+  #countdown{
+
+    gap:10px;
+
+    margin-top:28px;
+
+    flex-wrap:nowrap;
+  }
+
+  .time-box{
+
+    flex:1;
+
+    min-width:78px;
+    height:84px;
+
+    border-radius:18px;
+  }
+
+  .time-box:hover{
+    transform:none;
+  }
+
+  .time-box span{
+    font-size:1.85rem;
+  }
+
+  .time-box small{
+    font-size:.75rem;
+  }
+
+  .progress-bar{
+    margin-top:30px;
+  }
+
+  .bottom-text{
+    margin-top:20px;
+    font-size:.9rem;
+  }
+
+  #enterButton{
+
+    width:100%;
+
+    margin-top:22px;
+
+    padding:14px;
+
+    border-radius:16px;
+
+    font-size:.95rem;
+  }
+
+
+
+  .hero{
+
+    width:100%;
+
+    padding:18px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    min-height:100svh;
+  }
+
+  .hero-card{
+
+    width:100%;
+    max-width:520px;
+
+    margin:0 auto;
+
+    padding:32px 22px;
+
+    border-radius:28px;
+
+    text-align:center;
+
+    animation:none;
+
+    transform:none;
+  }
+
+  .mini{
+
+    font-size:.72rem;
+
+    letter-spacing:2px;
+  }
+
+  .hero-card h1{
+
+    font-size:3rem;
+
+    line-height:.95;
+
+    margin-top:10px;
+  }
+
+  .hero-card p{
+
+    font-size:1rem;
+
+    line-height:1.55;
+
+    margin-top:12px;
+  }
+
+  .pages{
+
+    margin-top:28px;
+
+    flex-direction:column;
+
+    gap:12px;
+  }
+
+  .page-btn{
+
+    width:100%;
+
+    padding:14px;
+
+    border-radius:18px;
+
+    font-size:.95rem;
+
+    text-align:center;
+  }
+}
